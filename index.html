@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>AllCapitals</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="img/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/mdb.min.css" />
+</head>
+
+<body onload="pageOnload()">
+
+  <div class="wrapper">
+
+    <header>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid justify-content-center">
+          <a class="navbar-brand" href="#">
+            <h1>AllCapitals</h1>
+          </a>
+        </div>
+      </nav>
+    </header>
+    
+    <main class="main justify-content-center">
+      <div class="form-outline mx-auto" id="country">        
+        <input class="form-control form-control-lg" list="datalistOptions" id="countryName" />
+        <label class="form-label" for="formControlLg">Country name</label>
+              <datalist id="datalistOptions"></datalist>            
+      </div>
+      <div class="mx-auto justify-content-center">
+        <div class="mx-auto justify-content-center" id="btnFind">
+          <button class="btn btn-light btn-rounded" type="button" id="buttFind">Find</button>
+        </div>
+        <div class="mx-auto justify-content-center" id="btnClear">
+          <button class="btn btn-dark btn-rounded" type="button" value="delete" id="buttClear">Clear</button>
+        </div>
+      </div>
+      <div class="card-body justify-content-center mx-auto" id="capitalName"></div>
+    </main>
+
+    <footer class="footer text-center text-white" style="background-color: black;">
+      <div class="container p-4">
+        <section class="">
+          <div class="row">
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image rounded">
+                <img src="img/rome.jpg" class="w-100" />
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image rounded">
+                <img src="img/berlin.jpg" class="w-100" />
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image rounded">
+                <img src="img/budapest.jpg" class="w-100" />
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image rounded">
+                <img src="img/kyiv.jpg" class="w-100" />
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image rounded">
+                <img src="img/paris.jpg" class="w-100" />
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image rounded">
+                <img src="img/vienna.jpg" class="w-100" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="text-center text-black p-3" style="background-color: darkgrey;">© 2020 Copyright: AllCapitals</div>
+    </footer>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+</body>
+
+</html>
