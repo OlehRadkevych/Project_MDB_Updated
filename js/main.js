@@ -56,7 +56,6 @@ async function searchCapital(a) {
 // Запустили цикл для перевірки   
     for (let i=0; i<jsonData.data.length-1; i++){
         if (a == jsonData.data[i].name.toLowerCase()){
-            console.log(jsonData.data[i].name.toLowerCase());
 // Якщо тру то присвоюємо значення і показуємо результат
             let capital = jsonData.data[i].capital;
             document.getElementById('capitalName').innerHTML = capital;
