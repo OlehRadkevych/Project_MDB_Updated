@@ -7,6 +7,7 @@ function pageOnload(){
 function buttonStateChangeEvent(){
 buttClear.disabled=true;
 buttFind.disabled = false;
+
 document.getElementById('capitalName').innerHTML = "";
 }
 
@@ -54,10 +55,12 @@ async function searchCapital(a) {
 
 // Запустили цикл для перевірки   
     for (let i=0; i<jsonData.data.length-1; i++){
-        if (a == jsonData.data[i].name){
+        if (a == jsonData.data[i].name.toLowerCase()){
+            console.log(jsonData.data[i].name.toLowerCase());
 // Якщо тру то присвоюємо значення і показуємо результат
             let capital = jsonData.data[i].capital;
             document.getElementById('capitalName').innerHTML = capital;
+            document.getElementById('countryName').value = jsonData.data[i].name;
             break;
             }
 // Якщо фолс видаємо текст що такої країни не існує
@@ -66,15 +69,9 @@ async function searchCapital(a) {
         
 }
 
-buttFind.onclick = function () {
+buttFind.onclick = function (){
     // .trim() = ігнор пробілів перед і після значення
-    const country = document.getElementById('countryName').value.trim();
-     
-    //TODO: пофіксити форматування для країн з 2+ слів
-    // Форматування тексту відповідно до формату даних.
-    // const countryDebug = country.charAt(0).toUpperCase() + country.slice(1).toLowerCase();
-    // console.log(countryDebug);
-    
+    const country = document.getElementById('countryName').value.trim().toLowerCase(); 
     searchCapital(country);
     buttonStateChange();
     }

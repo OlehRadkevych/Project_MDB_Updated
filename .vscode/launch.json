@@ -8,7 +8,7 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "D:/методичка/JS/Project_MDB_Updated/index.html",
+            "url": "C:/Users/oleh.radkevych/Documents/GitHub/Project_MDB_Updated/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
