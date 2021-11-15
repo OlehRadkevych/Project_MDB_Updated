@@ -28,17 +28,15 @@ const input = document.querySelector('input');
 input.addEventListener('change', buttonStateChangeEvent);
 
 async function arrayCountries() {
-// Кунули запит на API 
 let response = await fetch("https://countriesnow.space/api/v0.1/countries/capital")
-// Отримали відповідь
     let jsonData = await response.json()
 
-// Перенесли дані з API відповіді в масив за допомогою циклу
+
     let countryInArray = new Array();
     for (let i=0; i<jsonData.data.length-1; i++){
     countryInArray[i]= jsonData.data[i].name;
     }
-// Створили даталист із даних в масиві
+
     var list = document.getElementById('datalistOptions');
     countryInArray.forEach(function(item){
        var option = document.createElement('option');
@@ -48,10 +46,8 @@ let response = await fetch("https://countriesnow.space/api/v0.1/countries/capita
 }
 
 async function searchCapital(a) {
-// Кунули запит на API 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
-
 var raw = JSON.stringify({
   "country": a
 });
@@ -60,18 +56,19 @@ var requestOptions = {
   method: 'POST',
   headers: myHeaders,
   body: raw,
-//   redirect: 'follow'
 };
-fetch("https://countriesnow.space/api/v0.1/countries/capital", requestOptions)
-.then(response => response.json())
-.then(result => document.getElementById('capitalName').innerHTML = result.data.capital)
-.catch(error => console.log('error', error));
-            
-        
-}
+
+let response = await   fetch("https://countriesnow.space/api/v0.1/countries/capital", requestOptions)
+let jsonDataCapital = await  response.json();
+    if (jsonDataCapital.error == false) {
+        document.getElementById('capitalName').innerHTML = jsonDataCapital.data.capital;
+        document.getElementById('countryName').value = jsonDataCapital.data.name
+        }
+    else ( document.getElementById('capitalName').innerHTML = "Country doesn`t exist")
+    }              
+
 
 buttFind.onclick = function (){
-    // .trim() = ігнор пробілів перед і після значення
     const country = document.getElementById('countryName').value.trim().toLowerCase(); 
     searchCapital(country);
     buttonStateChange();
