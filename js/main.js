@@ -49,22 +49,24 @@ let response = await fetch("https://countriesnow.space/api/v0.1/countries/capita
 
 async function searchCapital(a) {
 // Кунули запит на API 
-    let response = await fetch("https://countriesnow.space/api/v0.1/countries/capital")
-// Отримали відповідь
-    let jsonData = await response.json()
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
 
-// Запустили цикл для перевірки   
-    for (let i=0; i<jsonData.data.length-1; i++){
-        if (a == jsonData.data[i].name.toLowerCase()){
-// Якщо тру то присвоюємо значення і показуємо результат
-            let capital = jsonData.data[i].capital;
-            document.getElementById('capitalName').innerHTML = capital;
-            document.getElementById('countryName').value = jsonData.data[i].name;
-            break;
-            }
-// Якщо фолс видаємо текст що такої країни не існує
-        else (document.getElementById('capitalName').innerHTML = "Country doesn`t exist")    
-    }
+var raw = JSON.stringify({
+  "country": a
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+//   redirect: 'follow'
+};
+fetch("https://countriesnow.space/api/v0.1/countries/capital", requestOptions)
+.then(response => response.json())
+.then(result => document.getElementById('capitalName').innerHTML = result.data.capital)
+.catch(error => console.log('error', error));
+            
         
 }
 
